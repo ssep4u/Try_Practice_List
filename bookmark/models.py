@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Bookmark(models.Model):
@@ -6,4 +7,9 @@ class Bookmark(models.Model):
   url = models.URLField('Site URL')
 
   def __str__(self):
-    return '이름: '+self.site_name+', URL: '+self.url
+    return '이름: ' + self.site_name + ', URL: ' + self.url
+
+  # ImproperlyConfigured
+  def get_absolute_url(self):
+    # return reverse('bookmark:detail', args=[str(self.id)])
+    return reverse('bookmark:detail', kwargs={'pk': str(self.id)})
