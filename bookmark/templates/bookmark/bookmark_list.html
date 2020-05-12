@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookmark List{% endblock %}
+
+{% block content %}
 <a href="{% url 'bookmark:add' %}">Add Bookmark</a>
 <p></p>
 <table>
@@ -22,3 +27,4 @@
   {% endfor %}
   </tbody>
 </table>
+{% endblock %}
