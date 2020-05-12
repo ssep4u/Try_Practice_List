@@ -1,0 +1,24 @@
+<a href="#">Add Bookmark</a>
+<p></p>
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Site</th>
+    <th>URL</th>
+    <th>Modify</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for bookmark in bookmark_list %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td><a href="#">{{ bookmark.site_name }}</a></td>
+      <td><a href="{{ bookmark.url }}">{{ bookmark.url }}</a></td>
+      <td><a href="#">Modify</a></td>
+      <td><a href="#">Delete</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
