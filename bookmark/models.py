@@ -12,4 +12,4 @@ class Bookmark(models.Model):
   # ImproperlyConfigured
   def get_absolute_url(self):
     # return reverse('bookmark:detail', args=[str(self.id)])
-    return reverse('bookmark:detail', kwargs={'pk': str(self.id)})
+    return reverse('bookmark:detail', kwargs={'pk': self.id})
