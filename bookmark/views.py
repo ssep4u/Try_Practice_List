@@ -10,6 +10,22 @@ class BookmarkList(ListView):
   paginate_by = 3
 
 
+class BookmarkSearchList(ListView):
+  model = Bookmark
+  template_name = 'bookmark/bookmark_list.html'
+  paginate_by = 3
+
+  def get_queryset(self):
+    search_site_name = self.request.GET.get('search_site_name', '')
+
+    if search_site_name == '':
+      bookmark_list = self.model.objects.all()
+    else:
+      bookmark_list = self.model.objects.filter(site_name__contains=search_site_name)
+
+    return bookmark_list
+
+
 class BookmarkCreateView(CreateView):
   model = Bookmark
   fields = ['site_name', 'url']
